@@ -1,23 +1,24 @@
-import React from 'react';
-import jumboData from './fixtures/jumbo'
-import Jumbotron from './components/jumbotron'
+import React from "react";
+import jumboData from "./fixtures/jumbo";
+import Jumbotron from "./components/jumbotron";
 
 export default function App() {
   return (
     <Jumbotron.Container>
-      {jumboData.map((item) => (
-        <Jumbotron key={item.direction}>
-          <Jumbotron.Pane>
-            <Jumbotron.Title>{item.title}</Jumbotron.Title>
-            <Jumbotron.Subtitle>{item.subTitle}</Jumbotron.Subtitle>
-          </Jumbotron.Pane>
-          <Jumbotron.Pane>
-            <Jumbotron.Image src={item.image} alt={item.alt} />
-          </Jumbotron.Pane>
-        </Jumbotron>
-      ))}
+      {jumboData.map((item) => {
+        console.log(item);
+        return (
+          <Jumbotron key={item.direction}>
+            <Jumbotron.Pane>
+              <Jumbotron.Title>{item.title}</Jumbotron.Title>
+              <Jumbotron.SubTitle>{item.subTitle}</Jumbotron.SubTitle>
+            </Jumbotron.Pane>
+            <Jumbotron.Pane>
+              <Jumbotron.Image src={item.image} alt={item.alt} />
+            </Jumbotron.Pane>
+          </Jumbotron>
+        );
+      })}
     </Jumbotron.Container>
   );
 }
-
-
