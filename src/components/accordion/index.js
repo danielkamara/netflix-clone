@@ -1,7 +1,15 @@
 import React, { useState, useContext, createContext } from "react";
-import { Container } from "../jumbotron/styles/jumbotron";
+import {
+  Container,
+  Frame,
+  Title,
+  Item,
+  Inner,
+  Header,
+  Body,
+} from "./styles/accordion";
 
-const ToggleContext = creatContext();
+const ToggleContext = createContext();
 
 export default function Accordion({ children, ...restProps }) {
   return (
@@ -32,10 +40,16 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }) {
   const { toggleShow, setToggleShow } = useContext(ToggleContext);
   return (
     <Header
-      onClick={() => setToggleShow((!toggleShow)}
+      onClick={() => setToggleShow((toggleShow) => !toggleShow)}
       {...restProps}
     >
       {children}
     </Header>
   );
+};
+
+Accordion.Body = function AccordionBody({ children, ...restProps }) {
+  const { toggleShow } = useContext(ToggleContext);
+
+  return toggleShow ? <Body>{children}</Body> : null;
 };
