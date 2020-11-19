@@ -10,7 +10,6 @@ export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
           return children;
         }
         if (user) {
-          console.log("I am a user!");
           return (
             <Redirect
               to={{
