@@ -1,6 +1,6 @@
-import React from 'react'
-
+import React from "react";
+import { SelectProfileContainer } from "./profiles";
 
 export function BrowseContainer({ slides }) {
-    return <p>Hello</p>
+  return <SelectProfileContainer />;
 }
