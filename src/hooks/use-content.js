@@ -13,7 +13,7 @@ export default function useContent(target) {
         .then((snapshot) => {
             const allContent = snapshot.docs.map((contentObj) => ({
                 ...contentObj.data(),
-                docId: contentObj.id
+                docId: contentObj.id,
             }))
             setContent(allContent)
         }).catch((error) => {
