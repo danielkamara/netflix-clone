@@ -14,11 +14,15 @@ export default function selectionFilter({ series, films }) {
         data: series.filter((item) => item.genre === "children"),
       },
       {
+        title: "Crime",
+        data: series.filter((item) => item.genre === "crime"),
+      },
+      {
         title: "Feel Good",
         data: series.filter((item) => item.genre === "feel-good"),
       },
     ],
-    
+
     films: [
       {
         title: "Drama",
@@ -40,9 +44,6 @@ export default function selectionFilter({ series, films }) {
         title: "Romance",
         data: films.filter((item) => item.genre === "romance"),
       },
-      
-      
-      
     ],
   };
 }
