@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { FirebaseContext } from "../context/firebase";
+import { Form } from "../components";
 import { HeaderContainer } from "../containers/header";
 import { FooterContainer } from "../containers/footer";
-import { Form } from "../components";
-import { FirebaseContext } from "../context/firebase";
 import * as ROUTES from "../constants/routes";
 
-export default function Signup() {
+export default function SignUp() {
   const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
 
@@ -17,11 +17,12 @@ export default function Signup() {
 
   const isInvalid = firstName === "" || password === "" || emailAddress === "";
 
-  const handleSignUp = (event) => {
+  const handleSignup = (event) => {
     event.preventDefault();
-    firebase
+
+    return firebase
       .auth()
-      .createUserWithEmailAndPassword(emailAddress.password)
+      .createUserWithEmailAndPassword(emailAddress, password)
       .then((result) =>
         result.user
           .updateProfile({
@@ -47,7 +48,7 @@ export default function Signup() {
           <Form.Title>Sign Up</Form.Title>
           {error && <Form.Error>{error}</Form.Error>}
 
-          <Form.Base onSubmit={handleSignUp} method="POST">
+          <Form.Base onSubmit={handleSignup} method="POST">
             <Form.Input
               placeholder="First name"
               value={firstName}
@@ -61,21 +62,26 @@ export default function Signup() {
             <Form.Input
               type="password"
               value={password}
-              autocomplete="off"
+              autoComplete="off"
               placeholder="Password"
               onChange={({ target }) => setPassword(target.value)}
             />
-            <Form.Submit disabled={isInvalid} type="submit">
+            <Form.Submit
+              disabled={isInvalid}
+              type="submit"
+              data-testid="sign-up"
+            >
               Sign Up
             </Form.Submit>
-            <Form.Text>
-              Already a user? <Form.Link to="/signin">Sign in now.</Form.Link>
-            </Form.Text>
-            <Form.TextSmall>
-              This page is protected by Google reCAPTCHA to ensure you're not a
-              bot. Learn more.
-            </Form.TextSmall>
           </Form.Base>
+
+          <Form.Text>
+            Already a user? <Form.Link to="/signin">Sign in now.</Form.Link>
+          </Form.Text>
+          <Form.TextSmall>
+            This page is protected by Google reCAPTCHA to ensure you're not a
+            bot. Learn more.
+          </Form.TextSmall>
         </Form>
       </HeaderContainer>
       <FooterContainer />

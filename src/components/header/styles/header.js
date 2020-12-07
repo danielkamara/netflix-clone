@@ -9,7 +9,6 @@ export const Background = styled.div`
     top left / cover no-repeat;
 `;
 
-
 export const Container = styled.div`
   display: flex;
   margin: 0 56px;
@@ -55,4 +54,31 @@ export const ButtonLink = styled(ReactRouterLink)`
   &:hover {
     background-color: #f40612;
   }
+`;
+
+export const Feature = styled(Container)`
+  padding: 150px 0 550px 0;
+  flex-direction: column;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
+`;
+
+export const FeatureCallOut = styled.h2`
+  color: white;
+  font-size: 50px;
+  line-height: normal;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  margin: 0;
+  margin-bottom: 20px;
+`;
+
+export const Text = styled.p`
+  color: white;
+  font-size: 22px;
+  line-height: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  margin: 0;
 `;
