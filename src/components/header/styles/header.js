@@ -8,10 +8,10 @@ export const Background = styled.div`
       src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
     top left / cover no-repeat;
 
-    @media (max-width: 1100px) {
-      ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && 
-    `background: none;`}
-    }
+  @media (max-width: 1100px) {
+    ${({ dontShowOnSmallViewPort }) =>
+      dontShowOnSmallViewPort && `background: none;`}
+  }
 `;
 
 export const Container = styled.div`
@@ -32,13 +32,14 @@ export const Container = styled.div`
 `;
 
 export const Picture = styled.button`
-background: url(${({ src }) =>  src })
-background-size: contain;
-border: 0;
-width: 32px;
-height: 32px;
-cursor: pointer;
-`
+  background: url(${({ src }) => src});
+  background-size: contain;
+  border: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+`;
+
 export const Link = styled.p`
   color: white;
   text-decoration: none;
@@ -55,64 +56,60 @@ export const Link = styled.p`
   }
 `;
 
-
 export const Group = styled.div`
-display: flex;
-align-items: center;
-
-`
+  display: flex;
+  align-items: center;
+`;
 
 export const Dropdown = styled.div`
-display: none;
-background-color: black;
-position: absolute;
-padding: 10px;
-width: 100px;
-top: 32px;
-right: 10px;
+  display: none;
+  background-color: black;
+  position: absolute;
+  padding: 10px;
+  width: 100px;
+  top: 32px;
+  right: 10px;
 
- ${Group}: last-of-type ${Link} {
-cursor: pointer;
- }
+  ${Group}: last-of-type ${Link} {
+    cursor: pointer;
+  }
 
- ${Group} {
-   margin-bottom: 10px;
+  ${Group} {
+    margin-bottom: 10px;
 
-   &:last-of-type {
-     margin-bottom: 0;
-   }
-   ${Link}, ${Picture} {
-     cursor: default;
-   }
- }
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    ${Link}, ${Picture} {
+      cursor: default;
+    }
+  }
 
- button {
-   margin-right: 10px;
- }
+  button {
+    margin-right: 10px;
+  }
 
- p {
-   font-size: 12px;
-   margin-bottom: 0;
-   margin-top: 0;
- }
-` 
-
+  p {
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+`;
 export const Profile = styled.div`
-display: flex;
-align-items: center;
-margin-left: 20px;
-position: relative;
-
-button {
-  cursor: pointer;
-}
-
-&:hover >${Dropdown} {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  position: relative;
 
-}
-`
+  button {
+    cursor: pointer;
+  }
+
+  &:hover > ${Dropdown} {
+    display: flex;
+    flex-direction: column;
+  }
+`;
 
 export const Logo = styled.img`
   height: 32px;
