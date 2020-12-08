@@ -39,6 +39,28 @@ width: 32px;
 height: 32px;
 cursor: pointer;
 `
+export const Link = styled.p`
+  color: white;
+  text-decoration: none;
+  margin-right: 30px;
+  font-weight: ${({ active }) => (active === "true" ? "700" : "normal")};
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+  }
+
+  &:list-of-type {
+    margin-right: 0;
+  }
+`;
+
+
+export const Group = styled.div`
+display: flex;
+align-items: center;
+
+`
 
 export const Dropdown = styled.div`
 display: none;
@@ -49,7 +71,31 @@ width: 100px;
 top: 32px;
 right: 10px;
 
-`
+ ${Group}: last-of-type ${Link} {
+cursor: pointer;
+ }
+
+ ${Group} {
+   margin-bottom: 10px;
+
+   &:last-of-type {
+     margin-bottom: 0;
+   }
+   ${Link}, ${Picture} {
+     cursor: default;
+   }
+ }
+
+ button {
+   margin-right: 10px;
+ }
+
+ p {
+   font-size: 12px;
+   margin-bottom: 0;
+   margin-top: 0;
+ }
+` 
 
 export const Profile = styled.div`
 display: flex;
@@ -117,22 +163,6 @@ export const FeatureCallOut = styled.h2`
   margin-bottom: 20px;
 `;
 
-export const Link = styled.p`
-  color: white;
-  text-decoration: none;
-  margin-right: 30px;
-  font-weight: ${({ active }) => (active === "true" ? "700" : "normal")};
-  cursor: pointer;
-
-  &:hover {
-    font-weight: bold;
-  }
-
-  &:list-of-type {
-    margin-right: 0;
-  }
-`;
-
 export const Text = styled.p`
   color: white;
   font-size: 22px;
@@ -140,9 +170,3 @@ export const Text = styled.p`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
   margin: 0;
 `;
-
-export const Group = styled.div`
-display: flex;
-align-items: center;
-
-`

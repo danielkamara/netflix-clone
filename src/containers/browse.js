@@ -31,6 +31,9 @@ export function BrowseContainer({ slides }) {
           <Header.Group>
             <Header.Profile>
               <Header.Picture src={user.photoURL} />
+              <Header.Group>
+                <Header.TextLink onClick={() => firebase.auth().signOut()}>Sign Out</Header.TextLink>
+              </Header.Group>
               <Header.Dropdown>
                 <Header.Group>
                   <Header.Picture src={user.photoURL} />
