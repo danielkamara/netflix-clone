@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { SelectProfileContainer } from "./profiles";
 import { FirebaseContext } from "../context/firebase";
-import { Header, Loading } from "../components";
+import {Card, Header, Loading } from "../components";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
+import Card from "../components/card";
 
 export function BrowseContainer({ slides }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -62,6 +63,10 @@ export function BrowseContainer({ slides }) {
           <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
+
+      <Card.Group>
+        
+      </Card.Group>
     </>
   ) : (
     <SelectProfileContainer user={user} setProfile={setProfile} />
