@@ -18,7 +18,7 @@ import {
   Image,
 } from "./styles/card";
 
-export const FeatureContext = CreateContext();
+export const FeatureContext = createContext();
 
 export default function Card({ children, ...restProps }) {
   const [showFeature, setShowFeature] = useState(false);
