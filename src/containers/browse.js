@@ -6,8 +6,8 @@ import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
 
 export function BrowseContainer({ slides }) {
-  const [category, setCategory] = useState("series");
   const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCategory] = useState("series");
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const [slideRows, setSlideRows] = useState([]);
