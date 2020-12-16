@@ -1,10 +1,17 @@
 import styled from "styled-components/macro";
 
-export const Container = styled.div``;
+export const Title = styled.p`
+
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  box-sizing; border-box;
+`;
 
 export const Group = styled.div``;
-
-export const Title = styled.p``;
 
 export const SubTitle = styled.p``;
 
